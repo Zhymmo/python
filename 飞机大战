@@ -1,11 +1,37 @@
 import pygame
 from fly_sprit import *
-
+SCREEN_RECT=pygame.Rect(0,0,480,700)
 class flygame():
     def __init__(self):
-        print("初始化")
+       self.screen=pygame.display.set_mode(SCREEN_RECT.size)#creat screen
+       self.clock=pygame.time.Clock()#创建游戏时钟
+       self.__creat_sprit_group()
+
+    def __creat_sprit_group(self):
+        self.menu=Sprit("./游戏素材/游戏菜单.jpg",0)
+            
+    def Quit_game():
+        pygame.quit()
+        exit()
+
+    def __Event_monitor(self):
+        for event in pygame.event.get():
+            pass
+
+    def __Cheak_crash(self):
+        pass
+    
+    def __Update_spirit(self):
+        pass
+    
     def GameStart(self):
-        print("开始游戏")
+        while True:
+            self.clock.tick(60)#设置帧数
+            self.screen.blit(self.menu.image,(0,0))#打印游戏菜单
+            self.__Event_monitor()#监听事件
+            self.__Update_spirit()#更新精灵族
+            pygame.display.update()#更新屏幕
+
 
 if __name__== '__main__':
     start=flygame()
